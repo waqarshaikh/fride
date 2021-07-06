@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "258029990805",
+    "project_id": "fride-283d2",
+    "storage_bucket": "fride-283d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258029990805:android:23d98d752fd15efc8dfc9c",
+        "android_client_info": {
+          "package_name": "com.waqarshaikh.fride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258029990805-b8a4h7uuuu1vhcj6en1qmrph62ku3d75.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqarshaikh.fride",
+            "certificate_hash": "dbd3ce99e24123138c3a5837c13cacf9b912a727"
+          }
+        },
+        {
+          "client_id": "258029990805-k4d8ncnceei7r8ca0m3via6kp2ivaq59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjEDdMEjYYswOt3riVSsWHJ51YqepBybE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258029990805-k4d8ncnceei7r8ca0m3via6kp2ivaq59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
