@@ -39,74 +39,78 @@ class _SignInState extends State<SignIn> {
                     )),
               ],
             ),
-            body: Container(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-                child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(height: 20.0),
-                        TextFormField(
-                          decoration:
-                              inputDecoration.copyWith(hintText: "Email"),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter Email';
-                            }
-                            return null;
-                          },
-                          onChanged: (value) {
-                            setState(() => email = value);
-                          },
-                        ),
-                        SizedBox(height: 20.0),
-                        TextFormField(
-                          decoration:
-                              inputDecoration.copyWith(hintText: "Password"),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Password must be at least 8 characters long';
-                            }
-                            return null;
-                          },
-                          obscureText: true,
-                          onChanged: (value) {
-                            setState(() => password = value);
-                          },
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        ElevatedButton(
-                          child: Text("Sign in"),
-                          onPressed: () async {
-                            if (_formKey.currentState!.validate()) {
-                              setState(() {
-                                loading = true;
-                              });
-                              dynamic result = await _authService
-                                  .signInWithEmailAndPassword(email, password);
-                              if (result == null) {
-                                setState(() {
-                                  loading = false;
-                                  error =
-                                      "Please enter a valid Email or Password.";
-                                });
+            body: SingleChildScrollView(
+              child: Container(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+                  child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(height: 20.0),
+                          TextFormField(
+                            decoration:
+                                inputDecoration.copyWith(hintText: "Email"),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Email';
                               }
-                            }
-                          },
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        Text(
-                          error,
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15.00,
+                              return null;
+                            },
+                            onChanged: (value) {
+                              setState(() => email = value);
+                            },
                           ),
-                        ),
-                      ],
-                    ))));
+                          SizedBox(height: 20.0),
+                          TextFormField(
+                            decoration:
+                                inputDecoration.copyWith(hintText: "Password"),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Password must be at least 8 characters long';
+                              }
+                              return null;
+                            },
+                            obscureText: true,
+                            onChanged: (value) {
+                              setState(() => password = value);
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          ElevatedButton(
+                            child: Text("Sign in"),
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                setState(() {
+                                  loading = true;
+                                });
+                                dynamic result = await _authService
+                                    .signInWithEmailAndPassword(
+                                        email, password);
+                                if (result == null) {
+                                  setState(() {
+                                    loading = false;
+                                    error =
+                                        "Please enter a valid Email or Password.";
+                                  });
+                                }
+                              }
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Text(
+                            error,
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 15.00,
+                            ),
+                          ),
+                        ],
+                      ))),
+            ));
   }
 }
