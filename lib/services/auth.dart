@@ -9,6 +9,11 @@ class AuthService {
     return user != null ? CustomUser(uid: user.uid) : null;
   }
 
+  // get CustomUser
+  CustomUser? get customUser {
+    return _userFromFirebaseUser(_auth.currentUser);
+  }
+
   //Auth change User Stream
   Stream<CustomUser?> get user {
     return _auth
